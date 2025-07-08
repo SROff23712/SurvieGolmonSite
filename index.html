@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SurvieTeamGolmon</title>
+<link rel="icon" href="https://raw.githubusercontent.com/SROff23712/image/refs/heads/main/05102f9687556050359089d4a755aa16%20-%20Copie.png" />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+  
+  body {
+    margin: 0;
+    background: #121212;
+    color: #eee;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    background-image: url('https://images.steamusercontent.com/ugc/2310974141604980016/B4EF3A7A2D1772DE26B1A6F51CE33A04FD8BB917/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=#000000&letterbox=false');
+    background-repeat: no-repeat;
+    background-size: cover;
+    image-rendering: pixelated;
+    background-attachment: fixed;
+  }
+  
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 60px;
+    background: #1e1e1e;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.7);
+    z-index: 100;
+    gap: 20px;
+  }
+  
+  .logo img {
+    height: 40px;
+    width: auto;
+    display: block;
+  }
+  
+  header nav {
+    margin-left: auto;
+  }
+  
+  header nav a {
+    color: #fff;
+    margin-left: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  header nav a:hover {
+    color: #21a1f1;
+  }
+  
+  main {
+    padding-top: 100px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  #home-section {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    text-align: center;
+    margin-bottom: 100px;
+  }
+  
+  #home-section h1 {
+    font-size: 6rem;
+    font-weight: 900;
+    margin: 0;
+    color: #000;
+    text-shadow: 0 0 15px #61dafb88;
+  }
+  
+  #btn-projets {
+    background: #61dafb;
+    color: #121212;
+    font-weight: 700;
+    padding: 20px 80px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 1.8rem;
+    box-shadow: 0 5px 20px #61dafb88;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  #btn-projets:hover {
+    background: #b1b1b1;
+    box-shadow: 0 8px 25px #21a1f188;
+  }
+  
+  #projets {
+    padding: 80px 20px 120px;
+    position: relative;
+  }
+  
+  .project.left, .project.right {
+    max-width: 40vw;
+    height: auto;
+    background: rgba(31,31,31,0.7);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(97,218,251,0.2);
+    margin-bottom: 100px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px #61dafb44;
+    font-size: 1.3rem;
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+  }
+  
+  .project.left {
+    transform: translateX(-80px);
+    margin-left: 100px;
+  }
+  
+  .project.left.show {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .project.right {
+    transform: translateX(80px);
+    margin-right: 100px;
+    margin-left: auto;
+  }
+  
+  .project.right.show {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .project h3 {
+    color: #61dafb;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 2rem;
+  }
+  
+  .project p {
+    margin: 0;
+    line-height: 1.6;
+    color: #ccc;
+  }
+  
+  #contact {
+    padding: 60px 20px 100px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    align-items: center;
+  }
+  
+  #contact a {
+    transition: transform 0.25s ease;
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+  }
+  
+  #contact a:hover {
+    transform: scale(1.2);
+  }
+  
+  #contact img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+.sroff {
+  color: #000;
+  font-size: larger;
+  text-align: center;
+}
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .project.left, .project.right {
+      max-width: 90vw;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      transform: translateX(0) !important;
+      opacity: 1 !important;
+      flex-direction: column;
+      height: auto;
+    }
+    #contact {
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+    #contact a {
+      width: 36px;
+      height: 36px;
+    }
+  }
+
+  a {
+  color: #61dafb; /* couleur turquoise claire */
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #21a1f1; /* couleur au survol */
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="https://raw.githubusercontent.com/SROff23712/image/refs/heads/main/05102f9687556050359089d4a755aa16%20-%20Copie.png" alt="Logo" />
+  </div>
+  <nav>
+    <a href="#home-section">Accueil</a>
+    <a href="#projets">Tutoriels</a>
+  </nav>
+</header>
+
+<main>
+  <section id="home-section" aria-label="Accueil">
+    <h1>Tuto SurvieTeamGolmon</h1>
+    <button id="btn-projets">Voir les tutoriels</button>
+  </section>
+<section id="projets" aria-label="Tutoriel serveur SuVieTeamGolmon">
+
+  <div class="project left">
+    <div>
+      <h3>1. Ouverture officielle du serveur SuvieTeamGolmon</h3>
+      <p>Mercredi 2 juillet 2025 marque l’ouverture officielle du serveur Minecraft SuvieTeamGolmon !</p>
+    </div>
+    <img src="https://raw.githubusercontent.com/SROff23712/image/refs/heads/main/05102f9687556050359089d4a755aa16%20-%20Copie.png" alt="Minecraft serveur officiel" style="width: 200px; border-radius: 10px;" />
+  </div>
+
+  <div class="project right">
+    <div>
+      <h3>2. Liste des mods</h3>
+      <p>Vous pouvez consulter la liste complète des mods directement ici : <a href="https://survie-golmon.vercel.app/" target="_blank" rel="noopener">https://survie-golmon.vercel.app/</a></p>
+    </div>
+    <img src="https://images.icon-icons.com/2107/PNG/512/file_type_jar_icon_130519.png" alt="Mods Minecraft" style="width: 200px; border-radius: 10px;" />
+  </div>
+
+  <div class="project left">
+    <div>
+      <h3>3. Comment se connecter au serveur ?</h3>
+      <p>Deux options pour rejoindre le serveur :</p>
+      <ol>
+        <li>Avec un compte officiel Minecraft</li>
+        <li>Avec un launcher crack (SK Launcher)</li>
+      </ol>
+    </div>
+    <img src="https://cdn-icons-png.flaticon.com/512/3208/3208742.png" alt="Connexion Minecraft" style="width: 200px; border-radius: 10px;" />
+  </div>
+
+  <div class="project right">
+    <div>
+      <h3>4. Option 1 : Compte officiel (via Modrinth)</h3>
+      <p>
+        Téléchargez et installez <a href="https://modrinth.com/app" target="_blank" rel="noopener">Modrinth App</a>, connectez-vous à votre compte Minecraft.<br>
+        Téléchargez le modpack : <a href="https://www.mediafire.com/file/2ysrrqftq50aqgg/Survie_Serveur_Golmon_Official_Modpack_2.0.mrpack/file" target="_blank" rel="noopener">Survie Serveur Golmon Official Modpack 2.0</a>.<br>
+        Ouvrez le fichier `.mrpack`, il s’importera automatiquement dans Modrinth.<br>
+        Lancez le jeu, allez dans Multijoueur et rejoignez "TeamGolmon".<br>
+        Si le serveur n’apparaît pas, ajoutez-le avec l’IP : <code>survieteamgolmon.falixsrv.me</code>.
+      </p>
+    </div>
+    <img src="https://minecraft.fr/wp-content/uploads/2023/08/logo-modrinth.png" alt="Modrinth" style="width: 200px; border-radius: 10px;" />
+  </div>
+
+  <div class="project left">
+    <div>
+      <h3>5. Option 2 : Version Crack (SK Launcher)</h3>
+      <p>
+        Téléchargez SK Launcher ici : <a href="https://www.mediafire.com/file/l1mvp3cjtp9h48r/SKlauncher-3.2.12_Setup.exe/file" target="_blank" rel="noopener">SKlaucnher</a><br>
+        Téléchargez le modpack : <a href="https://www.mediafire.com/file/2ysrrqftq50aqgg/Survie_Serveur_Golmon_Official_Modpack_2.0.mrpack/file" target="_blank" rel="noopener">Survie Serveur Golmon Official Modpack 2.0</a>.<br>
+        Lancez SK Launcher, cliquez sur "Jouer en offline" et choisissez un pseudo disponible sur <a href="https://fr.namemc.com/">NameMc</a> pour le savoir écrivez un pseudo dans la bar de recherche et si un profil aparait vous pouvez choisir ce pseudo.<br>
+        Dans "Gestionnaire d'installation", importez le modpack.<br>
+        Sélectionnez "Survie Serveur Golmon" et cliquez sur "Jouer".<br>
+        Dans le jeu, allez dans Multijoueur et rejoignez "TeamGolmon".<br>
+        Si le serveur n’apparaît pas, ajoutez-le avec l’IP : <code>survieteamgolmon.falixsrv.me</code>.
+      </p>
+    </div>
+    <img src="https://launchermania.com/keghupah/2023/05/sklauncher.jpg" alt="SK Launcher" style="width: 200px; border-radius: 10px;" />
+  </div>
+
+  <div class="project right">
+    <div>
+      <h3>6. Bon jeu et bienvenue !</h3>
+      <p>Nous vous souhaitons une aventure pleine de fun et de blocs sur SuVieTeamGolmon ! Amusez-vous bien !</p>
+    </div>
+    <img src="https://cdn-icons-png.flaticon.com/512/4353/4353420.png" alt="Bon jeu" style="width: 200px; border-radius: 10px;" />
+  </div>
+
+</section>
+<div class="sroff">
+<p>by <a href="https://sroff23712.github.io/SROff-portfolio/" style="color: #000000; text-decoration: none;">_SR_Off_</a></p>
+
+</div>
+</main>
+
+<script>
+  // Scroll vers les projets quand on clique sur le bouton
+document.getElementById('btn-projets').addEventListener('click', () => {
+  document.getElementById('projets').scrollIntoView({ behavior: 'smooth' });
+});
+
+
+  // Animation apparition des projets au scroll
+  function revealProjects() {
+    const projects = document.querySelectorAll('.project');
+    const windowHeight = window.innerHeight;
+    projects.forEach(project => {
+      const rect = project.getBoundingClientRect();
+      if (rect.top < windowHeight - 100) {
+        project.classList.add('show');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', revealProjects);
+  window.addEventListener('load', revealProjects);
+</script>
+
+</body>
+</html>
